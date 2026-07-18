@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Barlow:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { font-family: 'Barlow', system-ui, sans-serif; color: #222634; background: #ffffff; -webkit-font-smoothing: antialiased; }
+  a { color: #A21729; text-decoration: none; }
+  a:hover { color: #E4A31C; }
+  button { font-family: inherit; cursor: pointer; border: none; }
+  ::selection { background: #E4A31C; color: #16233F; }
+</style>
+</helmet>
+
+<div style="min-height:100vh; display:flex; flex-direction:column; background:#ffffff;">
+
+  <header style="position:sticky; top:0; z-index:50; background:rgba(255,255,255,0.94); backdrop-filter:blur(8px); border-bottom:1px solid #ece8df;">
+    <div style="max-width:1200px; margin:0 auto; padding:14px 28px; display:flex; align-items:center; justify-content:space-between; gap:24px;">
+      <button onClick="{{ goHome }}" style="display:flex; align-items:center; gap:12px; background:transparent; padding:0;">
+        <span style="width:42px; height:42px; border-radius:50%; background:#16233F; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden;">
+          <span style="position:absolute; inset:5px; border-radius:50%; border:2px solid #E4A31C;"></span>
+          <span style="position:absolute; top:3px; left:50%; transform:translateX(-50%); width:5px; height:8px; background:#A21729;"></span>
+          <span style="position:absolute; bottom:3px; left:50%; transform:translateX(-50%); width:5px; height:8px; background:#2f5aa8;"></span>
+          <span style="position:absolute; left:3px; top:50%; transform:translateY(-50%); width:8px; height:5px; background:#9c4f8c;"></span>
+          <span style="position:absolute; right:3px; top:50%; transform:translateY(-50%); width:8px; height:5px; background:#E4A31C;"></span>
+          <span style="width:9px; height:9px; border-radius:50%; background:#f7f5f0; z-index:1;"></span>
+        </span>
+        <span style="display:flex; flex-direction:column; align-items:flex-start; line-height:1;">
+          <span style="font-family:'Oswald'; font-weight:700; font-size:20px; letter-spacing:0.14em; color:#16233F;">SPHENGE</span>
+          <span style="font-family:'Barlow'; font-weight:500; font-size:9.5px; letter-spacing:0.42em; color:#A21729; margin-top:3px;">CREATIONS</span>
+        </span>
+      </button>
+
+      <nav style="display:flex; align-items:center; gap:6px;">
+        <button onClick="{{ goHome }}" style="{{ navHome }}">Home</button>
+        <button onClick="{{ goProducts }}" style="{{ navProducts }}">Products</button>
+        <button onClick="{{ goIndustries }}" style="{{ navIndustries }}">Industries</button>
+        <button onClick="{{ goAbout }}" style="{{ navAbout }}">About</button>
+        <button onClick="{{ goContact }}" style="{{ navContact }}">Contact</button>
+        <button onClick="{{ goContact }}" style="margin-left:12px; background:#E4A31C; color:#16233F; font-family:'Barlow'; font-weight:600; font-size:14px; padding:10px 20px; border-radius:6px; letter-spacing:0.01em;" style-hover="background:#16233F; color:#ffffff;">Request a quote</button>
+      </nav>
+    </div>
+  </header>
+
+  <main style="flex:1;">
+
+    <!-- ===================== HOME ===================== -->
+    <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+    <section>
+      <div style="position:relative; background:#16233F; overflow:hidden;">
+        <div style="position:absolute; top:0; right:0; width:44%; height:100%; background:linear-gradient(135deg,#1d2f52,#16233F); clip-path:polygon(22% 0,100% 0,100% 100%,0 100%);"></div>
+        <div style="position:absolute; top:0; right:0; width:10px; height:100%; background:#A21729;"></div>
+        <div style="max-width:1200px; margin:0 auto; padding:84px 28px 92px; display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center; position:relative;">
+          <div>
+            <span style="display:inline-block; font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:#E4A31C; border:1px solid rgba(228,163,28,0.4); padding:7px 14px; border-radius:40px;">Detergent &amp; chemical supplies · South Africa</span>
+            <h1 style="font-family:'Oswald'; font-weight:700; font-size:60px; line-height:1.02; color:#ffffff; margin:26px 0 0; text-transform:uppercase; letter-spacing:0.005em;">Cleaning supplies<br><span style="color:#E4A31C;">engineered for</span><br>excellence.</h1>
+            <p style="font-family:'Barlow'; font-weight:400; font-size:18px; line-height:1.6; color:#c3cad9; margin:24px 0 0; max-width:480px; text-wrap:pretty;">A dynamic company driven by a passion for excellence in the cleaning supplies sector — bridging high-quality products and the real needs of homes, businesses and industry.</p>
+            <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:34px;">
+              <button onClick="{{ goProducts }}" style="background:#E4A31C; color:#16233F; font-family:'Barlow'; font-weight:600; font-size:15px; padding:15px 30px; border-radius:7px;" style-hover="background:#f2b83a;">Browse products</button>
+              <button onClick="{{ goContact }}" style="background:transparent; color:#ffffff; font-family:'Barlow'; font-weight:600; font-size:15px; padding:15px 30px; border-radius:7px; border:1px solid rgba(255,255,255,0.35);" style-hover="border-color:#E4A31C; color:#E4A31C;">Get in touch</button>
+            </div>
+          </div>
+          <div style="position:relative; z-index:1;">
+            <div style="aspect-ratio:4/3.4; border-radius:16px; background:repeating-linear-gradient(45deg,#22345a,#22345a 12px,#1c2c4c 12px,#1c2c4c 24px); border:1px solid rgba(255,255,255,0.12); display:flex; align-items:center; justify-content:center; box-shadow:0 30px 60px -24px rgba(0,0,0,0.6);">
+              <span style="font-family:'IBM Plex Mono'; font-size:13px; color:#8fa0c0; letter-spacing:0.08em;">product / lifestyle hero</span>
+            </div>
+            <div style="position:absolute; -bottom:0; bottom:-26px; left:-26px; background:#ffffff; padding:18px 22px; border-radius:12px; box-shadow:0 16px 40px -14px rgba(0,0,0,0.4); display:flex; flex-direction:column; gap:2px;">
+              <span style="font-family:'Oswald'; font-weight:700; font-size:26px; color:#A21729;">6</span>
+              <span style="font-family:'Barlow'; font-weight:500; font-size:12px; color:#5b6376; letter-spacing:0.04em; text-transform:uppercase;">Product ranges</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- trust strip -->
+      <div style="background:#f7f5f0; border-bottom:1px solid #ece8df;">
+        <div style="max-width:1200px; margin:0 auto; padding:22px 28px; display:flex; flex-wrap:wrap; gap:34px; align-items:center; justify-content:space-between;">
+          <div style="display:flex; flex-direction:column;"><span style="font-family:'Oswald'; font-weight:600; font-size:19px; color:#16233F;">Est. 2022</span><span style="font-family:'Barlow'; font-size:13px; color:#5b6376;">Reg No. 2022/246861/07</span></div>
+          <div style="width:1px; height:34px; background:#e0dbd0;"></div>
+          <div style="display:flex; flex-direction:column;"><span style="font-family:'Oswald'; font-weight:600; font-size:19px; color:#16233F;">Daveyton, Benoni</span><span style="font-family:'Barlow'; font-size:13px; color:#5b6376;">Gauteng, South Africa</span></div>
+          <div style="width:1px; height:34px; background:#e0dbd0;"></div>
+          <div style="display:flex; flex-direction:column;"><span style="font-family:'Oswald'; font-weight:600; font-size:19px; color:#16233F;">Household → Industrial</span><span style="font-family:'Barlow'; font-size:13px; color:#5b6376;">One supplier, every segment</span></div>
+          <div style="width:1px; height:34px; background:#e0dbd0;"></div>
+          <div style="display:flex; flex-direction:column;"><span style="font-family:'Oswald'; font-weight:600; font-size:19px; color:#16233F;">Quality first</span><span style="font-family:'Barlow'; font-size:13px; color:#5b6376;">Trusted, consistent supply</span></div>
+        </div>
+      </div>
+
+      <!-- categories -->
+      <div style="max-width:1200px; margin:0 auto; padding:82px 28px 20px;">
+        <div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:16px; margin-bottom:36px;">
+          <div>
+            <span style="font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#A21729;">What we supply</span>
+            <h2 style="font-family:'Oswald'; font-weight:700; font-size:40px; color:#16233F; margin:10px 0 0; text-transform:uppercase;">Our product ranges</h2>
+          </div>
+          <button onClick="{{ goProducts }}" style="background:transparent; color:#16233F; font-family:'Barlow'; font-weight:600; font-size:15px; border-bottom:2px solid #E4A31C; padding:4px 0;" style-hover="color:#A21729;">View full catalog →</button>
+        </div>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+          <sc-for list="{{ categories }}" as="cat" hint-placeholder-count="6">
+            <button onClick="{{ cat.open }}" style="text-align:left; background:#ffffff; border:1px solid #e7e3da; border-radius:14px; padding:26px; display:flex; flex-direction:column; gap:14px; transition:transform .15s;" style-hover="border-color:#E4A31C; transform:translateY(-3px);">
+              <span style="width:48px; height:48px; border-radius:11px; background:#E4A31C; display:flex; align-items:center; justify-content:center; font-family:'Oswald'; font-weight:700; font-size:22px; color:#16233F;">{{ cat.initial }}</span>
+              <span style="font-family:'Oswald'; font-weight:600; font-size:22px; color:#16233F; text-transform:uppercase;">{{ cat.name }}</span>
+              <span style="font-family:'Barlow'; font-size:14.5px; color:#5b6376; line-height:1.5;">{{ cat.tag }}</span>
+              <span style="font-family:'Barlow'; font-weight:600; font-size:13px; color:#A21729; margin-top:2px;">{{ cat.count }} products →</span>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+
+      <!-- why us -->
+      <div style="max-width:1200px; margin:0 auto; padding:78px 28px;">
+        <div style="background:#16233F; border-radius:20px; padding:56px 52px; position:relative; overflow:hidden;">
+          <div style="position:absolute; top:0; right:0; width:200px; height:8px; background:#E4A31C;"></div>
+          <div style="position:absolute; bottom:0; left:0; width:200px; height:8px; background:#A21729;"></div>
+          <span style="font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#E4A31C;">Our competitive advantage</span>
+          <h2 style="font-family:'Oswald'; font-weight:700; font-size:36px; color:#ffffff; margin:12px 0 8px; text-transform:uppercase; max-width:640px;">Built on quality &amp; customer satisfaction</h2>
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:28px; margin-top:40px;">
+            <sc-for list="{{ advantages }}" as="adv" hint-placeholder-count="4">
+              <div style="display:flex; flex-direction:column; gap:10px;">
+                <span style="width:38px; height:3px; background:#E4A31C;"></span>
+                <span style="font-family:'Oswald'; font-weight:600; font-size:19px; color:#ffffff; text-transform:uppercase;">{{ adv.title }}</span>
+                <span style="font-family:'Barlow'; font-size:14px; color:#b7c0d2; line-height:1.55;">{{ adv.body }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA band -->
+      <div style="background:#E4A31C;">
+        <div style="max-width:1200px; margin:0 auto; padding:44px 28px; display:flex; flex-wrap:wrap; gap:20px; align-items:center; justify-content:space-between;">
+          <div>
+            <h3 style="font-family:'Oswald'; font-weight:700; font-size:30px; color:#16233F; margin:0; text-transform:uppercase;">Need bulk or a custom order?</h3>
+            <p style="font-family:'Barlow'; font-size:16px; color:#5a4a12; margin:8px 0 0;">Tell us what you're cleaning — we'll put together the right supply list.</p>
+          </div>
+          <button onClick="{{ goContact }}" style="background:#16233F; color:#ffffff; font-family:'Barlow'; font-weight:600; font-size:16px; padding:16px 34px; border-radius:8px;" style-hover="background:#0f1830;">Request a quote</button>
+        </div>
+      </div>
+    </section>
+    </sc-if>
+
+    <!-- ===================== PRODUCTS ===================== -->
+    <sc-if value="{{ isProducts }}" hint-placeholder-val="{{ true }}">
+    <section>
+      <div style="background:#16233F; position:relative; overflow:hidden;">
+        <div style="position:absolute; top:0; right:0; width:0; height:0; border-top:120px solid #E4A31C; border-left:180px solid transparent;"></div>
+        <div style="max-width:1200px; margin:0 auto; padding:60px 28px 54px; position:relative;">
+          <span style="font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#E4A31C;">Full catalog</span>
+          <h1 style="font-family:'Oswald'; font-weight:700; font-size:48px; color:#ffffff; margin:10px 0 0; text-transform:uppercase;">Our products</h1>
+          <p style="font-family:'Barlow'; font-size:17px; color:#c3cad9; margin:12px 0 0; max-width:620px;">Everything Sphenge Creations supplies, grouped by category. Filter below, then send an enquiry for pricing and availability.</p>
+        </div>
+      </div>
+
+      <!-- filter chips -->
+      <div style="position:sticky; top:71px; z-index:20; background:#f7f5f0; border-bottom:1px solid #ece8df;">
+        <div style="max-width:1200px; margin:0 auto; padding:16px 28px; display:flex; flex-wrap:wrap; gap:10px;">
+          <sc-for list="{{ chips }}" as="chip" hint-placeholder-count="7">
+            <button onClick="{{ chip.onClick }}" style="{{ chip.style }}">{{ chip.name }}</button>
+          </sc-for>
+        </div>
+      </div>
+
+      <div style="max-width:1200px; margin:0 auto; padding:52px 28px 80px; display:flex; flex-direction:column; gap:64px;">
+        <sc-for list="{{ filtered }}" as="cat" hint-placeholder-count="6">
+          <div>
+            <div style="display:flex; align-items:center; gap:16px; margin-bottom:24px; padding-bottom:16px; border-bottom:2px solid #16233F;">
+              <span style="width:52px; height:52px; border-radius:12px; background:#E4A31C; display:flex; align-items:center; justify-content:center; font-family:'Oswald'; font-weight:700; font-size:24px; color:#16233F;">{{ cat.initial }}</span>
+              <div>
+                <h2 style="font-family:'Oswald'; font-weight:700; font-size:30px; color:#16233F; margin:0; text-transform:uppercase;">{{ cat.name }}</h2>
+                <span style="font-family:'Barlow'; font-size:14.5px; color:#5b6376;">{{ cat.tag }}</span>
+              </div>
+            </div>
+            <div style="display:grid; {{ catalogGrid }} gap:18px;">
+              <sc-for list="{{ cat.items }}" as="item" hint-placeholder-count="6">
+                <div style="display:flex; flex-direction:column; border:1px solid #e7e3da; border-radius:12px; overflow:hidden; background:#ffffff;" style-hover="border-color:#E4A31C;">
+                  <div style="height:118px; background:repeating-linear-gradient(45deg,#f0ede7,#f0ede7 10px,#f7f5f0 10px,#f7f5f0 20px); display:flex; align-items:center; justify-content:center; border-bottom:1px solid #ece8df;">
+                    <span style="font-family:'IBM Plex Mono'; font-size:11px; color:#a3a9b4; letter-spacing:0.05em;">product photo</span>
+                  </div>
+                  <div style="padding:15px 16px; display:flex; flex-direction:column; gap:12px; flex:1;">
+                    <span style="font-family:'Barlow'; font-weight:600; font-size:15px; color:#222634; line-height:1.35;">{{ item }}</span>
+                    <sc-if value="{{ showEnquire }}" hint-placeholder-val="{{ true }}">
+                      <button onClick="{{ enquire }}" style="margin-top:auto; align-self:flex-start; background:transparent; color:#A21729; font-family:'Barlow'; font-weight:600; font-size:13px; border:1px solid #e7d0ce; border-radius:6px; padding:8px 14px;" style-hover="background:#A21729; color:#ffffff; border-color:#A21729;">Enquire</button>
+                    </sc-if>
+                  </div>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+    </sc-if>
+
+    <!-- ===================== INDUSTRIES ===================== -->
+    <sc-if value="{{ isIndustries }}" hint-placeholder-val="{{ true }}">
+    <section>
+      <div style="background:#16233F; position:relative; overflow:hidden;">
+        <div style="position:absolute; top:0; right:0; width:12px; height:100%; background:#A21729;"></div>
+        <div style="max-width:1200px; margin:0 auto; padding:60px 28px 54px;">
+          <span style="font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#E4A31C;">Who we serve</span>
+          <h1 style="font-family:'Oswald'; font-weight:700; font-size:48px; color:#ffffff; margin:10px 0 0; text-transform:uppercase;">Industries &amp; segments</h1>
+          <p style="font-family:'Barlow'; font-size:17px; color:#c3cad9; margin:12px 0 0; max-width:640px;">Our household supplies are designed for families seeking hygienic living environments, while our industrial chemicals are engineered to handle the toughest grime in commercial settings.</p>
+        </div>
+      </div>
+      <div style="max-width:1200px; margin:0 auto; padding:70px 28px 80px; display:flex; flex-direction:column; gap:26px;">
+        <sc-for list="{{ industries }}" as="ind" hint-placeholder-count="4">
+          <div style="display:grid; grid-template-columns:0.9fr 1.1fr; gap:0; border:1px solid #e7e3da; border-radius:16px; overflow:hidden;">
+            <div style="background:repeating-linear-gradient(45deg,#f0ede7,#f0ede7 12px,#f7f5f0 12px,#f7f5f0 24px); min-height:230px; display:flex; align-items:center; justify-content:center; position:relative;">
+              <span style="position:absolute; top:18px; left:18px; width:44px; height:6px; background:#E4A31C;"></span>
+              <span style="font-family:'IBM Plex Mono'; font-size:12px; color:#a3a9b4;">{{ ind.photo }}</span>
+            </div>
+            <div style="padding:38px 40px; display:flex; flex-direction:column; justify-content:center;">
+              <span style="font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:#A21729;">{{ ind.kicker }}</span>
+              <h2 style="font-family:'Oswald'; font-weight:700; font-size:30px; color:#16233F; margin:8px 0 12px; text-transform:uppercase;">{{ ind.name }}</h2>
+              <p style="font-family:'Barlow'; font-size:15.5px; color:#5b6376; line-height:1.6; margin:0 0 18px; text-wrap:pretty;">{{ ind.body }}</p>
+              <div style="display:flex; flex-wrap:wrap; gap:8px;">
+                <sc-for list="{{ ind.tags }}" as="t" hint-placeholder-count="4">
+                  <span style="font-family:'Barlow'; font-weight:500; font-size:13px; color:#16233F; background:#f2efe8; border:1px solid #e7e3da; border-radius:40px; padding:6px 14px;">{{ t }}</span>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+    </sc-if>
+
+    <!-- ===================== ABOUT ===================== -->
+    <sc-if value="{{ isAbout }}" hint-placeholder-val="{{ true }}">
+    <section>
+      <div style="background:#16233F; position:relative; overflow:hidden;">
+        <div style="position:absolute; bottom:0; left:0; width:100%; height:8px; background:linear-gradient(90deg,#A21729 0 33%,#E4A31C 33% 66%,#2f5aa8 66% 100%);"></div>
+        <div style="max-width:1200px; margin:0 auto; padding:60px 28px 58px;">
+          <span style="font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#E4A31C;">About us</span>
+          <h1 style="font-family:'Oswald'; font-weight:700; font-size:48px; color:#ffffff; margin:10px 0 0; text-transform:uppercase;">Sphenge Creations</h1>
+        </div>
+      </div>
+
+      <div style="max-width:1000px; margin:0 auto; padding:72px 28px 20px; display:grid; grid-template-columns:1fr 1fr; gap:52px;">
+        <div>
+          <h2 style="font-family:'Oswald'; font-weight:700; font-size:28px; color:#A21729; margin:0 0 14px; text-transform:uppercase;">Business origins</h2>
+          <p style="font-family:'Barlow'; font-size:16px; color:#3f4657; line-height:1.7; margin:0; text-wrap:pretty;">Sphenge Creations was conceived out of a vision to bridge the gap between high-quality cleaning products and the specific needs of various customer segments in South Africa. We are a small but dynamic company driven by a passion for excellence in the cleaning supplies sector. Our journey began with a thorough understanding of market demands and the challenges faced by our target customer groups — insight that shapes our offerings and positions us to grow sustainably.</p>
+        </div>
+        <div>
+          <h2 style="font-family:'Oswald'; font-weight:700; font-size:28px; color:#A21729; margin:0 0 14px; text-transform:uppercase;">Competitive advantage</h2>
+          <p style="font-family:'Barlow'; font-size:16px; color:#3f4657; line-height:1.7; margin:0; text-wrap:pretty;">Our advantage lies in an unwavering commitment to quality and customer satisfaction. Household supplies are designed to tackle a wide range of cleaning tasks for families seeking hygienic homes, while our industrial chemicals are engineered for the toughest grime in commercial settings — a reliable solution for cleaning services and hospitality professionals. By maintaining strong relationships, we continuously adapt and innovate to meet evolving needs.</p>
+        </div>
+      </div>
+
+      <div style="max-width:1000px; margin:0 auto; padding:40px 28px;">
+        <div style="background:#16233F; border-radius:18px; padding:44px 46px; position:relative;">
+          <span style="font-family:'Oswald'; font-weight:700; font-size:52px; color:#E4A31C; line-height:0.6; display:block;">&ldquo;</span>
+          <p style="font-family:'Barlow'; font-weight:500; font-size:24px; color:#ffffff; line-height:1.4; margin:10px 0 0; font-style:italic;">If the plan doesn't work, change the plan. <span style="color:#E4A31C;">But never the goal.</span></p>
+        </div>
+      </div>
+
+      <!-- company details -->
+      <div style="max-width:1000px; margin:0 auto; padding:44px 28px 84px;">
+        <h2 style="font-family:'Oswald'; font-weight:700; font-size:28px; color:#16233F; margin:0 0 26px; text-transform:uppercase;">Company details</h2>
+        <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+          <div style="border:1px solid #e7e3da; border-radius:14px; padding:26px; display:flex; flex-direction:column; gap:6px;">
+            <span style="font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#A21729;">Registered name</span>
+            <span style="font-family:'Oswald'; font-weight:600; font-size:19px; color:#16233F; margin-top:4px;">Sphenge Creations (Pty) Ltd</span>
+            <span style="font-family:'Barlow'; font-size:14px; color:#5b6376;">Reg No. 2022/246861/07</span>
+          </div>
+          <div style="border:1px solid #e7e3da; border-radius:14px; padding:26px; display:flex; flex-direction:column; gap:6px;">
+            <span style="font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#A21729;">Company director</span>
+            <span style="font-family:'Oswald'; font-weight:600; font-size:19px; color:#16233F; margin-top:4px;">Bongani Mahlangu</span>
+            <span style="font-family:'Barlow'; font-size:14px; color:#5b6376;">Founder &amp; Director</span>
+          </div>
+          <div style="border:1px solid #e7e3da; border-radius:14px; padding:26px; display:flex; flex-direction:column; gap:6px;">
+            <span style="font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#A21729;">Headquarters</span>
+            <span style="font-family:'Oswald'; font-weight:600; font-size:19px; color:#16233F; margin-top:4px;">Daveyton, Benoni</span>
+            <span style="font-family:'Barlow'; font-size:14px; color:#5b6376;">12855 Tswako Street, 1520</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    </sc-if>
+
+    <!-- ===================== CONTACT ===================== -->
+    <sc-if value="{{ isContact }}" hint-placeholder-val="{{ true }}">
+    <section>
+      <div style="background:#16233F; position:relative; overflow:hidden;">
+        <div style="position:absolute; top:0; left:0; width:0; height:0; border-bottom:110px solid #A21729; border-right:170px solid transparent;"></div>
+        <div style="max-width:1200px; margin:0 auto; padding:60px 28px 54px; position:relative;">
+          <span style="font-family:'IBM Plex Mono'; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:#E4A31C;">Get in touch</span>
+          <h1 style="font-family:'Oswald'; font-weight:700; font-size:48px; color:#ffffff; margin:10px 0 0; text-transform:uppercase;">Contact us</h1>
+          <p style="font-family:'Barlow'; font-size:17px; color:#c3cad9; margin:12px 0 0; max-width:560px;">Send us your requirements and we'll get back to you with pricing, availability and a tailored supply list.</p>
+        </div>
+      </div>
+
+      <div style="max-width:1100px; margin:0 auto; padding:70px 28px 84px; display:grid; grid-template-columns:0.85fr 1.15fr; gap:52px; align-items:start;">
+        <div style="display:flex; flex-direction:column; gap:18px;">
+          <div style="border:1px solid #e7e3da; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:4px;">
+            <span style="font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#A21729;">Email</span>
+            <a href="mailto:Sphengecreations@gmail.com" style="font-family:'Barlow'; font-weight:600; font-size:17px; color:#16233F;" style-hover="color:#E4A31C;">Sphengecreations@gmail.com</a>
+          </div>
+          <div style="border:1px solid #e7e3da; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:4px;">
+            <span style="font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#A21729;">Phone</span>
+            <a href="tel:+27796908486" style="font-family:'Barlow'; font-weight:600; font-size:17px; color:#16233F;" style-hover="color:#E4A31C;">+27 79 690 8486</a>
+          </div>
+          <div style="border:1px solid #e7e3da; border-radius:14px; padding:24px; display:flex; flex-direction:column; gap:4px;">
+            <span style="font-family:'IBM Plex Mono'; font-size:11px; letter-spacing:0.1em; text-transform:uppercase; color:#A21729;">Headquarters</span>
+            <span style="font-family:'Barlow'; font-weight:600; font-size:17px; color:#16233F;">12855 Tswako Street</span>
+            <span style="font-family:'Barlow'; font-size:15px; color:#5b6376;">Daveyton, Benoni, 1520</span>
+          </div>
+        </div>
+
+        <div style="border:1px solid #e7e3da; border-radius:18px; padding:36px 38px; background:#ffffff; box-shadow:0 20px 50px -30px rgba(22,35,63,0.5);">
+          <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex; flex-direction:column; align-items:flex-start; gap:12px; padding:20px 0;">
+              <span style="width:52px; height:52px; border-radius:50%; background:#E4A31C; display:flex; align-items:center; justify-content:center; font-family:'Oswald'; font-weight:700; font-size:26px; color:#16233F;">✓</span>
+              <h3 style="font-family:'Oswald'; font-weight:700; font-size:26px; color:#16233F; margin:0; text-transform:uppercase;">Thank you!</h3>
+              <p style="font-family:'Barlow'; font-size:16px; color:#5b6376; margin:0;">Your enquiry has been captured. We'll be in touch shortly at the email you provided.</p>
+            </div>
+          </sc-if>
+          <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" style="display:flex; flex-direction:column; gap:18px;">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <label style="display:flex; flex-direction:column; gap:7px;"><span style="font-family:'Barlow'; font-weight:600; font-size:13px; color:#16233F;">Name</span><input required placeholder="Your name" style="font-family:'Barlow'; font-size:15px; padding:12px 14px; border:1px solid #ddd6ca; border-radius:8px; background:#faf9f5; color:#222634;"></label>
+              <label style="display:flex; flex-direction:column; gap:7px;"><span style="font-family:'Barlow'; font-weight:600; font-size:13px; color:#16233F;">Company (optional)</span><input placeholder="Company name" style="font-family:'Barlow'; font-size:15px; padding:12px 14px; border:1px solid #ddd6ca; border-radius:8px; background:#faf9f5; color:#222634;"></label>
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <label style="display:flex; flex-direction:column; gap:7px;"><span style="font-family:'Barlow'; font-weight:600; font-size:13px; color:#16233F;">Email</span><input required type="email" placeholder="you@email.com" style="font-family:'Barlow'; font-size:15px; padding:12px 14px; border:1px solid #ddd6ca; border-radius:8px; background:#faf9f5; color:#222634;"></label>
+              <label style="display:flex; flex-direction:column; gap:7px;"><span style="font-family:'Barlow'; font-weight:600; font-size:13px; color:#16233F;">Phone</span><input placeholder="+27 …" style="font-family:'Barlow'; font-size:15px; padding:12px 14px; border:1px solid #ddd6ca; border-radius:8px; background:#faf9f5; color:#222634;"></label>
+            </div>
+            <label style="display:flex; flex-direction:column; gap:7px;"><span style="font-family:'Barlow'; font-weight:600; font-size:13px; color:#16233F;">Product interest</span>
+              <select style="font-family:'Barlow'; font-size:15px; padding:12px 14px; border:1px solid #ddd6ca; border-radius:8px; background:#faf9f5; color:#222634;">
+                <option>Industrial Products</option>
+                <option>Hospitality</option>
+                <option>Personal Care</option>
+                <option>House Care</option>
+                <option>Kitchen</option>
+                <option>Stationery &amp; PPE</option>
+                <option>Not sure — please advise</option>
+              </select>
+            </label>
+            <label style="display:flex; flex-direction:column; gap:7px;"><span style="font-family:'Barlow'; font-weight:600; font-size:13px; color:#16233F;">Message</span><textarea required rows="4" placeholder="Tell us what you need supplied…" style="font-family:'Barlow'; font-size:15px; padding:12px 14px; border:1px solid #ddd6ca; border-radius:8px; background:#faf9f5; color:#222634; resize:vertical;"></textarea></label>
+            <button type="submit" style="background:#16233F; color:#ffffff; font-family:'Barlow'; font-weight:600; font-size:16px; padding:15px; border-radius:8px; margin-top:4px;" style-hover="background:#E4A31C; color:#16233F;">Send enquiry</button>
+          </form>
+          </sc-if>
+        </div>
+      </div>
+    </section>
+    </sc-if>
+
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer style="background:#0f1830; color:#c3cad9;">
+    <div style="max-width:1200px; margin:0 auto; padding:56px 28px 26px; display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px;">
+      <div>
+        <div style="display:flex; align-items:center; gap:11px; margin-bottom:16px;">
+          <span style="width:36px; height:36px; border-radius:50%; background:#16233F; border:1px solid rgba(255,255,255,0.15); display:flex; align-items:center; justify-content:center;"><span style="width:8px; height:8px; border-radius:50%; background:#E4A31C;"></span></span>
+          <span style="font-family:'Oswald'; font-weight:700; font-size:18px; letter-spacing:0.12em; color:#ffffff;">SPHENGE CREATIONS</span>
+        </div>
+        <p style="font-family:'Barlow'; font-size:14px; line-height:1.6; color:#8b93a6; max-width:280px; margin:0;">A dynamic South African supplier of household, hospitality and industrial cleaning products, detergents and chemicals.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <span style="font-family:'Oswald'; font-weight:600; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; color:#ffffff;">Explore</span>
+        <button onClick="{{ goHome }}" style="text-align:left; background:transparent; color:#8b93a6; font-family:'Barlow'; font-size:14px; padding:0;" style-hover="color:#E4A31C;">Home</button>
+        <button onClick="{{ goProducts }}" style="text-align:left; background:transparent; color:#8b93a6; font-family:'Barlow'; font-size:14px; padding:0;" style-hover="color:#E4A31C;">Products</button>
+        <button onClick="{{ goIndustries }}" style="text-align:left; background:transparent; color:#8b93a6; font-family:'Barlow'; font-size:14px; padding:0;" style-hover="color:#E4A31C;">Industries</button>
+        <button onClick="{{ goAbout }}" style="text-align:left; background:transparent; color:#8b93a6; font-family:'Barlow'; font-size:14px; padding:0;" style-hover="color:#E4A31C;">About</button>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <span style="font-family:'Oswald'; font-weight:600; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; color:#ffffff;">Contact</span>
+        <a href="mailto:Sphengecreations@gmail.com" style="font-family:'Barlow'; font-size:14px; color:#8b93a6;" style-hover="color:#E4A31C;">Sphengecreations@gmail.com</a>
+        <a href="tel:+27796908486" style="font-family:'Barlow'; font-size:14px; color:#8b93a6;" style-hover="color:#E4A31C;">+27 79 690 8486</a>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:10px;">
+        <span style="font-family:'Oswald'; font-weight:600; font-size:14px; letter-spacing:0.08em; text-transform:uppercase; color:#ffffff;">Address</span>
+        <span style="font-family:'Barlow'; font-size:14px; color:#8b93a6; line-height:1.6;">12855 Tswako Street,<br>Daveyton, Benoni, 1520<br>Gauteng, South Africa</span>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,0.08);">
+      <div style="max-width:1200px; margin:0 auto; padding:18px 28px; display:flex; flex-wrap:wrap; gap:10px; justify-content:space-between; align-items:center;">
+        <span style="font-family:'Barlow'; font-size:13px; color:#6b7286;">© 2026 Sphenge Creations (Pty) Ltd · Reg No. 2022/246861/07</span>
+        <span style="font-family:'IBM Plex Mono'; font-size:12px; color:#4f5670;">Passion for excellence in cleaning supplies</span>
+      </div>
+    </div>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:900},&quot;showEnquire&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Catalog&quot;},&quot;catalogColumns&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;2&quot;,&quot;3&quot;,&quot;4&quot;],&quot;default&quot;:&quot;3&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Catalog&quot;}}">
+class Component extends DCLogic {
+  state = { page: 'home', filter: 'all', sent: false };
+
+  baseCats() {
+    return [
+      { id:'industrial', name:'Industrial Products', initial:'I', tag:'Heavy-duty cleaning & vehicle care',
+        items:['Acid Based Cleaners','Car & Truck Care','Hand Cleaners','Solvent Degreasers','Water Based Degreasers','Antifreeze & Coolants','Consumables — mops, brooms, dust masks, gloves, rags, toilet paper, garage rolls & dispensers'] },
+      { id:'hospitality', name:'Hospitality', initial:'H', tag:'Everything for spotless venues',
+        items:['Air Fresheners','Degreasers','Disinfectants','Floor Care','Food Grade Products','Hand Cleaners','Equipment','Laundry','Bathroom, Tile Cleaning & Disinfectants','Consumables — double-bucket trolleys, antibacterial cloth, sponges, scrub brushes, squeegees, bin bags, paper towels, dish swabs, toilet brushes, dust pans, aprons, steel wool, pot scourers, feather dusters'] },
+      { id:'personal', name:'Personal Care', initial:'P', tag:'Gentle on skin, tough on germs',
+        items:['Bactericidal Handwash'] },
+      { id:'house', name:'House Care', initial:'H', tag:'A fresher, cleaner home',
+        items:['Air Freshener','Window Cleaner','Furniture Polish'] },
+      { id:'kitchen', name:'Kitchen', initial:'K', tag:'Grease, grime & odours handled',
+        items:['Drain Cleaner','Black Fluid','Bleach','Dish Washing Liquid'] },
+      { id:'other', name:'Stationery & PPE', initial:'S', tag:'Workplace supplies & protection',
+        items:['Stationery supplies (home & office)','PPE — work overalls & sets','Safety vests & footwear','Rainsuits','Hand, head & respiratory protection'] },
+    ];
+  }
+
+  go(p) { this.setState({ page: p }); if (typeof window !== 'undefined') window.scrollTo(0, 0); }
+
+  renderVals() {
+    const { page, filter, sent } = this.state;
+    const go = (p) => () => this.go(p);
+
+    const categories = this.baseCats().map(c => ({
+      ...c,
+      count: c.items.length,
+      open: () => { this.setState({ page: 'products', filter: c.id }); if (typeof window !== 'undefined') window.scrollTo(0, 0); },
+    }));
+
+    const filtered = filter === 'all' ? categories : categories.filter(c => c.id === filter);
+
+    const chipBase = { fontFamily:"'Barlow'", fontWeight:600, fontSize:'13.5px', padding:'9px 16px', borderRadius:'40px', border:'1px solid', transition:'all .12s' };
+    const chipDefs = [{ id:'all', name:'All products' }, ...this.baseCats().map(c => ({ id:c.id, name:c.name }))];
+    const chips = chipDefs.map(c => {
+      const active = filter === c.id;
+      return {
+        ...c,
+        onClick: () => this.setState({ filter: c.id }),
+        style: { ...chipBase,
+          background: active ? '#16233F' : '#ffffff',
+          color: active ? '#ffffff' : '#5b6376',
+          borderColor: active ? '#16233F' : '#e0dbd0' },
+      };
+    });
+
+    const navBase = { fontFamily:"'Barlow'", fontWeight:600, fontSize:'14.5px', padding:'9px 14px', borderRadius:'6px', background:'transparent' };
+    const nav = (k) => ({ ...navBase,
+      color: page === k ? '#16233F' : '#5b6376',
+      borderBottom: page === k ? '2px solid #E4A31C' : '2px solid transparent' });
+
+    const advantages = [
+      { title:'Quality first', body:'Products engineered to perform, from everyday homes to demanding commercial sites.' },
+      { title:'Customer focus', body:'Strong relationships mean we adapt and innovate around what you actually need.' },
+      { title:'Every segment', body:'One supplier across household, hospitality and industrial cleaning.' },
+      { title:'Locally driven', body:'A South African company built on understanding local market demands.' },
+    ];
+
+    const industries = [
+      { kicker:'For families & homes', name:'Households', photo:'home cleaning', tags:['House Care','Kitchen','Personal Care'],
+        body:'Household cleaning supplies designed to tackle a wide range of everyday tasks — for families seeking clean, hygienic and fresh-smelling living environments.' },
+      { kicker:'Hotels, lodges & venues', name:'Commercial & Hospitality', photo:'hospitality', tags:['Disinfectants','Floor Care','Laundry','Consumables'],
+        body:'A complete hospitality range — from air fresheners and food-grade products to janitorial consumables and equipment — keeping venues spotless and guest-ready.' },
+      { kicker:'Plants, workshops & fleets', name:'Industrial', photo:'industrial', tags:['Degreasers','Acid Cleaners','Car & Truck Care'],
+        body:'Industrial chemicals engineered to handle the toughest grime and dirt in commercial settings, plus vehicle care and antifreeze for fleets and workshops.' },
+      { kicker:'Safety & supply', name:'Workplaces & PPE', photo:'ppe & workwear', tags:['PPE','Workwear','Stationery'],
+        body:'Beyond cleaning, we supply protective equipment, workwear and stationery — a single point of contact for keeping teams safe, equipped and productive.' },
+    ];
+
+    const cols = this.props.catalogColumns ?? '3';
+    const catalogGrid = `grid-template-columns:repeat(${cols},1fr);`;
+
+    return {
+      page, filter, sent,
+      isHome: page === 'home', isProducts: page === 'products', isIndustries: page === 'industries', isAbout: page === 'about', isContact: page === 'contact',
+      notSent: !sent,
+      categories, filtered, chips, advantages, industries,
+      navHome: nav('home'), navProducts: nav('products'), navIndustries: nav('industries'), navAbout: nav('about'), navContact: nav('contact'),
+      goHome: go('home'), goProducts: go('products'), goIndustries: go('industries'), goAbout: go('about'), goContact: go('contact'),
+      enquire: () => { this.setState({ page: 'contact' }); if (typeof window !== 'undefined') window.scrollTo(0, 0); },
+      submit: (e) => { e.preventDefault(); this.setState({ sent: true }); if (typeof window !== 'undefined') window.scrollTo(0, 0); },
+      showEnquire: this.props.showEnquire ?? true,
+      catalogGrid,
+    };
+  }
+}
+</script>
+</body>
+</html>
